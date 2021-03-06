@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace Darko.BookStore
@@ -50,7 +52,15 @@ namespace Darko.BookStore
             //    await context.Response.WriteAsync("Hello from my third middleware response");
 
             //});
+            // za da koristis rabotite od wwwroot
+            app.UseStaticFiles();
 
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    // FileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory() + "MyStaticFiles")
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "MyStaticFiles")),
+            //    RequestPath = "/MyStaticFiles"
+            //});
 
             app.UseRouting();
 
@@ -60,6 +70,8 @@ namespace Darko.BookStore
 
 
             });
+
+
 
 
             //app.UseEndpoints(endpoints =>

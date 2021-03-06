@@ -10,9 +10,21 @@ namespace Darko.BookStore.Controllers
     {
 
         // This method is called action method
-        public string Index()
+        public ViewResult Index()
         {
-            return "Dare";
+            //  var obj = new { id = 1, name = "Darko" };
+            // return View("TempView/DareTemp.cshtml");
+            return View();
+        }
+
+        public ViewResult АboutUs()
+        {
+            return View();
+        }
+
+        public ViewResult ContactUs()
+        {
+            return View();
         }
     }
 }
